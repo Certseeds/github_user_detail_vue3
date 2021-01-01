@@ -1,27 +1,35 @@
+<!--
+ * @Github: https://github.com/Certseeds/github_user_detail_vue3
+ * @Organization: SUSTech
+ * @Author: nanoseeds
+ * @Date: 2021-01-02 00:23:17
+ * @LastEditors: nanoseeds
+ * @LastEditTime: 2021-01-02 01:22:52
+-->
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+  <HelloWorld
+    ref="RefChilde"
+    @click="fnCallChild"
+    msg="Welcome to Your Vue.js + TypeScript App"
+  />
 </template>
 
 <script lang="ts">
-import { Options, Vue } from "vue-class-component";
+import { defineComponent, ref } from "vue";
 import HelloWorld from "./components/HelloWorld.vue";
+//export default class App extends Vue {}
 
-@Options({
-  components: {
-    HelloWorld,
+export default defineComponent({
+  name: "father",
+  components: { HelloWorld },
+  setup() {
+    const RefChilde = ref(); //RefChilde 要和Son组件上的class名相同
+    const fnCallChild = () => {
+      RefChilde.value.reversedMessage();
+    };
+    return { RefChilde, fnCallChild };
   },
-})
-export default class App extends Vue {}
+});
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style scoped></style>
