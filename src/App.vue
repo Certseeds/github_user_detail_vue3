@@ -4,7 +4,7 @@
  * @Author: nanoseeds
  * @Date: 2021-01-02 00:23:17
  * @LastEditors: nanoseeds
- * @LastEditTime: 2021-01-02 01:22:52
+ * @LastEditTime: 2021-01-02 11:35:59
 -->
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
@@ -16,20 +16,23 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref, Ref } from "vue";
 import HelloWorld from "./components/HelloWorld.vue";
 //export default class App extends Vue {}
-
-export default defineComponent({
+const AppMain = defineComponent({
   name: "father",
   components: { HelloWorld },
-  setup() {
+  setup(): {
+    RefChilde: Ref<unknown>;
+    fnCallChild: () => void;
+  } {
     const RefChilde = ref(); //RefChilde 要和Son组件上的class名相同
-    const fnCallChild = () => {
+    const fnCallChild: () => void = () => {
       RefChilde.value.reversedMessage();
     };
     return { RefChilde, fnCallChild };
   },
 });
+export default AppMain;
 </script>
 <style scoped></style>
