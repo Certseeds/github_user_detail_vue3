@@ -1,7 +1,25 @@
 {
   "name": "github_user_detail_vue3",
   "version": "0.1.0",
+  "author": "Certseeds",
   "private": true,
+  "description": "use vue3 and typescript to show githubAPI",
+  "keywords": [
+    "node.js",
+    "typescript",
+    "vue3",
+    "githubAPI"
+  ],
+  "contributors": [
+    {
+      "name": "Certseeds"
+    }
+  ],
+  "license": "AGPL3.0 or later version",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Certseeds/github_user_detail_vue3"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
