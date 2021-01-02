@@ -4,7 +4,7 @@
  * @Author: nanoseeds
  * @Date: 2021-01-02 00:23:17
  * @LastEditors: nanoseeds
- * @LastEditTime: 2021-01-02 11:12:40
+ * @LastEditTime: 2021-01-02 22:38:16
 -->
 <template>
   <div class="hello">
@@ -13,28 +13,30 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from "vue";
+import { defineComponent } from "vue";
 const Helloworld = defineComponent({
   props: {
-    success: { type: String },
-    callback: {
-      type: Function as PropType<() => void>,
-    },
+    msg_in: { type: String },
   },
   data(): {
     msg: string;
     number1: number;
   } {
     return {
-      msg: "vue3 code Style",
+      msg: this.msg_in ?? "Init Value",
       number1: 2,
     };
   },
   methods: {
-    reversedMessage(): string {
+    reversedMessage(): void {
       this.msg = this.msg.split(" ").reverse().join(" ");
       this.number1 += 1;
-      return this.msg;
+    },
+  },
+  watch: {
+    msg_in(msg_in: string): void {
+      this.msg = msg_in;
+      console.log(__filename);
     },
   },
 });

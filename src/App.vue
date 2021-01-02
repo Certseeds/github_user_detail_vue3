@@ -4,14 +4,14 @@
  * @Author: nanoseeds
  * @Date: 2021-01-02 00:23:17
  * @LastEditors: nanoseeds
- * @LastEditTime: 2021-01-02 11:35:59
+ * @LastEditTime: 2021-01-02 22:27:26
 -->
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
   <HelloWorld
     ref="RefChilde"
     @click="fnCallChild"
-    msg="Welcome to Your Vue.js + TypeScript App"
+    msg_in="Welcome to Your Vue.js + TypeScript App"
   />
 </template>
 
@@ -27,7 +27,7 @@ const AppMain = defineComponent({
     fnCallChild: () => void;
   } {
     const RefChilde = ref(); //RefChilde 要和Son组件上的class名相同
-    const fnCallChild: () => void = () => {
+    const fnCallChild = () => {
       RefChilde.value.reversedMessage();
     };
     return { RefChilde, fnCallChild };
