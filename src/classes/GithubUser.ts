@@ -4,29 +4,27 @@
 // @Author: nanoseeds
 // @Date: 2021-01-02 00:33:28
 // @LastEditors: nanoseeds
-// @LastEditTime: 2021-01-02 00:41:52
-// @License: AGPL3.0 or any later version 
+// @LastEditTime: 2021-01-06 11:39:00
+// @License: AGPL3.0 or any later version
 //
-import { GithubAPIAddress } from '../public/public';
-import axios from 'axios';
-const GithubAPIUser = GithubAPIAddress.concat('users/');
-class GithubUser {
-    name: string;
-    information: any;
-    constructor(name: string) {
-        this.name = name;
-        this.getInformation();
-    }
-    getInformation(): void {
-        axios.get(GithubAPIUser.concat(this.name)).then(
-            (Response: any) => {
-                console.log(GithubAPIUser.concat(this.name));
-                console.log(Response);
-            }
-        )
-    }
-    get getName():string{
-        return this.name; 
-    }
+import { GithubAPIAddress } from "../public/public";
+import axios from "axios";
+const GithubAPIUser = GithubAPIAddress.concat("users/");
+class GitHubUser {
+  name: string;
+  information: any;
+  constructor(name: string) {
+    this.name = name;
+    this.getInformation();
+  }
+  getInformation(): void {
+    axios.get(GithubAPIUser.concat(this.name)).then((Response: any) => {
+      console.log(GithubAPIUser.concat(this.name));
+      console.log(Response);
+    });
+  }
+  get getName(): string {
+    return this.name;
+  }
 }
-export {GithubUser};
+export { GitHubUser };
